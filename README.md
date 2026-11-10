@@ -7,6 +7,9 @@
 - **Round 1 Project Proposal (PDF)**: [`project-proposal.pdf`](./project-proposal.pdf) (427 English words across Questions 1–10, strictly `<= 500` words)
 - **1080p Demo Video (MP4)**: [`assets/ugreen_nas_demo.mp4`](./assets/ugreen_nas_demo.mp4)
 
+> [!NOTE]
+> **Implementation & Pre-Test Scope:** This Round 1 Pre-test package validates cleanly (`status: "static-pass"`) against the official `uliya-skill-kit` v0.7.3 specification; the GitHub Pages dashboard is an interactive client-side workflow preview (live on-hardware UGOS Pro execution applies to Round 2 hardware finalists).
+
 ![UGREEN AI NAS Contract & Invoice Vault Auditor Architecture](./assets/architecture.png)
 
 ---
