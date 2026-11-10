@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UGREEN Hackathon 2026 on AI NAS — Round 1 Project Proposal</title>
+<style>
+  @page {
+    size: letter;
+    margin: 7mm 12mm 7mm 12mm;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 8.1pt;
+    line-height: 1.24;
+    color: #111827;
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    border-bottom: 2px solid #059669;
+    padding-bottom: 4px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-title h1 {
+    font-size: 12.2pt;
+    font-weight: 800;
+    color: #064e3b;
+    margin: 0 0 1px 0;
+    letter-spacing: -0.2px;
+  }
+  .header-title p {
+    font-size: 7.8pt;
+    color: #374151;
+    margin: 0;
+  }
+  .badge-box {
+    text-align: right;
+    font-size: 7.2pt;
+    color: #065f46;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 4px;
+    padding: 2.5px 6px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .section-label {
+    font-size: 7.8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #047857;
+    margin: 3px 0 3px 0;
+  }
+  .qa-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8px;
+  }
+  .qa-item {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-left: 3px solid #059669;
+    border-radius: 3px;
+    padding: 2.8px 6.5px;
+    page-break-inside: avoid;
+  }
+  .qa-q {
+    font-weight: 700;
+    font-size: 8pt;
+    color: #065f46;
+    margin-bottom: 0.5px;
+  }
+  .qa-a {
+    margin: 0;
+    color: #1f2937;
+    font-size: 7.9pt;
+  }
+  code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 7.4pt;
+    background: #eef2ff;
+    color: #1e3a8a;
+    padding: 0px 2.5px;
+    border-radius: 2px;
+  }
+  .divider {
+    border: none;
+    border-top: 1px dashed #9ca3af;
+    margin: 4px 0 4px 0;
+  }
+  .excluded-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 4px 7px;
+    font-size: 7.1pt;
+    line-height: 1.22;
+    color: #334155;
+    page-break-inside: avoid;
+  }
+  .excluded-box h3 {
+    font-size: 7.5pt;
+    color: #0f172a;
+    margin: 0 0 2px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .excluded-box p {
+    margin: 0 0 2px 0;
+  }
+  .excluded-box p:last-child {
+    margin-bottom: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">
+    <h1>UGREEN Hackathon 2026 on AI NAS — Project Proposal</h1>
+    <p><strong>Skill:</strong> <code>contract-invoice-vault-auditor</code> &nbsp;|&nbsp; <strong>Track:</strong> Automate Your Workflow &nbsp;|&nbsp; <strong>Standard:</strong> Uliya v2.0.0</p>
+  </div>
+  <div class="badge-box">
+    10 Responses Word Count: 427 Words<br>
+    (Strictly &le; 500 English Words Limit)
+  </div>
+</div>
+
+<div class="section-label">Part I — Ten Required Substantive Responses (427 English Words Total)</div>
+
+<div class="qa-grid">
+  <div class="qa-item">
+    <div class="qa-q">1. One sentence: What does the Skill do?</div>
+    <p class="qa-a"><code>contract-invoice-vault-auditor</code> is a local-first UGREEN AI NAS Skill that reconciles project contracts, vendor invoices, receipt photos, and meeting voice memos into a SHA-256-verified audit ledger and approval-gated archive vault.</p>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">2. Who is the target user and problem?</div>
+    <p class="qa-a">Freelancers, studios, and small businesses store PDF contracts, invoices, receipt photos, and meeting recordings across scattered NAS folders. Reconciling billing before tax filing or audits takes hours, misses duplicate invoices, or forces uploading confidential records to cloud tools.</p>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">3. What is your proposed solution?</div>
+    <p class="qa-a">A five-stage Uliya workflow on UGREEN AI NAS that hashes and deduplicates project files, extracts receipt totals via local OCR and VLM, reconciles contract caps against invoices, verifies verbal change orders from audio recordings, saves a Markdown Audit Ledger, and tags/archives files after approval.</p>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">4. What is the Core User Flow?</div>
+    <p class="qa-a">The user provides a project folder and optional receipt album. The Skill inventories and hashes files, extracts receipt and document figures, reconciles totals against contracts and audio transcripts, pauses at approval prompts to save the Audit Ledger, and tags/archives verified or discrepant files.</p>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">5. What substantive difference does your idea offer compared with existing tools or conventional AI solutions?</div>
+    <p class="qa-a">Cloud bookkeepers require uploading private contracts off-device and ignore voice memos or duplicates, while generic chatbots cannot safely orchestrate NAS storage. Our Skill performs four-way local reconciliation across documents, receipt photos, audio transcripts, and SHA-256 digests on-NAS with strict approval gates.</p>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">6. Which UGREEN AI NAS capabilities will be used, and at which step in the workflow?</div>
+    <p class="qa-a">Stage 1 (<code>file-agent</code>): <code>file-workflow</code> (<code>get-user-dir</code>), <code>ug-filesystem</code> (<code>find</code>, <code>ls</code>, <code>stat</code>, <code>sha256sum</code>), <code>ug-filemgr</code> (<code>scan-dedupe</code>). Stage 2 (<code>photo-agent</code>): <code>ug-photo</code> (<code>search-picture</code>, <code>search-screen</code>, <code>meta</code>, <code>vision-ocr</code>, <code>vision-vlm</code>). Stage 3 (<code>document-agent</code>): <code>ug-document</code> (<code>page-count</code>, <code>metadata</code>, <code>extract</code>, <code>reconcile</code>, <code>qa</code>). Stage 4 (<code>knowledge-agent</code>): <code>ug-knowledge</code> (<code>audio-transcription</code>, <code>collect-evidence</code>, <code>save-text</code>). Stage 5 (<code>file-agent</code>): <code>ug-filemgr</code> (<code>tag-get-by-name</code>, <code>tag-add</code>, <code>tag-add-file</code>), <code>ug-filesystem</code> (<code>mkdir</code>, <code>cpmv</code>), <code>file-workflow</code> (<code>batch-move</code>).</p>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">7. What was your technical approach?</div>
+    <p class="qa-a">Following Uliya Standard v2.0.0 (<code>kimage-planb</code> full <code>main-agent</code>), <code>SKILL.md</code> delegates tasks to <code>file-agent</code>, <code>photo-agent</code>, <code>document-agent</code>, and <code>knowledge-agent</code>. Inputs are source folder, optional receipt album, and archive path. Read stages run first; write actions enforce <code>waiting_approval</code> and <code>waiting_user</code> gates. Local UGOS AI models process all data on-NAS.</p>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">8. What is the current development status?</div>
+    <p class="qa-a">Implemented in Round 1: <code>SKILL.md</code> entry point, five-stage delegation workflow, capability evidence mapping, state/error handling, and four reference guides (CLI matrix, schemas, test suite, security model), passing <code>check-skill.mjs</code> with zero errors or warnings (<code>static-pass</code>). Pending Round 2: live testing on UGREEN AI NAS iDX6011 Pro.</p>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">9. What is your final validation plan?</div>
+    <p class="qa-a">Core Test 1 validates four-way reconciliation across a contract PDF, two invoices (one with a 500 USD rush fee), two receipt photos, and a voice memo approving the fee. Core Test 2 validates SHA-256 duplicate detection across nested folders. Edge Case validates empty-folder stopping, corrupted PDF partial reporting, and cancelled approval recovery.</p>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">10. Are there any known limitations of your Project?</div>
+    <p class="qa-a">Blurry receipt photos may lower <code>vision-ocr</code> accuracy, and noisy audio may reduce <code>audio-transcription</code> precision; the Skill mitigates both by flagging low-confidence items for manual review instead of guessing. Zero external runtime API dependencies exist, relying solely on built-in UGOS expert agents.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="excluded-box">
+  <h3>Part II — Excluded Declarations &amp; Third-Party / Open-Source Disclosures (Exempt from 500-Word Limit per Official Rules)</h3>
+  <p><strong>Entrant &amp; Team Consent Declaration:</strong> Individual Entrant / Authorized Representative: <strong>Jeff</strong>. I confirm that this Submission (<code>contract-invoice-vault-auditor</code>) and its core workflow are original works newly developed during the UGREEN Hackathon 2026 on AI NAS submission period, and I agree to the Official Rules. Electronic Signature: <code>/s/ Jeffrey Graham</code> (Date: November 2026).</p>
+  <p><strong>Third-Party Components, Open-Source Licenses &amp; Data Flows:</strong> (1) <em>Runtime Dependencies &amp; External Transfers:</em> None. The Skill package contains pure Markdown orchestration instructions (<code>SKILL.md</code> and <code>references/*.md</code>), uses only built-in UGOS registered expert agents (<code>file-agent</code>, <code>photo-agent</code>, <code>document-agent</code>, <code>knowledge-agent</code>), and makes zero external API calls. (2) <em>Development Tooling:</em> Validated using the official UGREEN <code>uliya-skill-kit</code> v0.7.3 (<code>capability-catalog.json</code> v2.0.0 and <code>check-skill.mjs</code>) under UGREEN SkillHub Terms; executed locally on Node.js v20+ (MIT License, OpenJS Foundation); PDF rendered via Chromium Headless (BSD-3-Clause License). (3) <em>AI Tool Disclosure:</em> Claude Code / Antigravity AI coding assistant was used to inspect <code>capability-catalog.json</code>, format Markdown reference tables, and run static validation checks against <code>check-skill.mjs</code>.</p>
+</div>
+
+</body>
+</html>

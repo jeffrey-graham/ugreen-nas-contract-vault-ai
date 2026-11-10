@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UGREEN AI NAS Contract & Invoice Vault Auditor — Local Zero-Cloud FinOps & Legal Risk Engine on UGOS Pro</title>
+  <style>
+    :root {
+      --bg: #070b14;
+      --panel: #0f172a;
+      --panel-alt: #131e36;
+      --border: #1e293b;
+      --ugreen: #10b981;
+      --ugreen-glow: rgba(16, 185, 129, 0.18);
+      --cyan: #06b6d4;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --purple: #8b5cf6;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: radial-gradient(circle at 15% 0%, #0b2420 0%, var(--bg) 45%);
+      color: var(--text);
+      line-height: 1.55;
+      padding-bottom: 60px;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-wrap {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-badge {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #04130e;
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 8px;
+      letter-spacing: 0.04em;
+    }
+    .brand h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .brand span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      display: block;
+    }
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--panel-alt);
+      color: var(--text);
+      transition: all 0.18s ease;
+    }
+    .btn:hover {
+      border-color: var(--ugreen);
+      transform: translateY(-1px);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #03150e;
+      border-color: #10b981;
+      font-weight: 700;
+    }
+    .container {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 28px 24px 0;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(6, 182, 212, 0.06));
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.16);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .hero h2 {
+      font-size: 1.85rem;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      color: #cbd5e1;
+      font-size: 0.96rem;
+      margin-bottom: 18px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .kpi-card {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .kpi-card .val {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--ugreen);
+    }
+    .kpi-card .lbl {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 22px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 1024px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .card-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pill {
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      background: rgba(6, 182, 212, 0.15);
+      color: #22d3ee;
+      border: 1px solid rgba(6, 182, 212, 0.35);
+    }
+    .pill-green {
+      background: rgba(16, 185, 129, 0.16);
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.35);
+    }
+    .pill-amber {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+    .pill-red {
+      background: rgba(239, 68, 68, 0.16);
+      color: #f87171;
+      border-color: rgba(239, 68, 68, 0.35);
+    }
+    .scenario-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .tab-btn {
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--panel-alt);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .tab-btn.active {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border-color: var(--ugreen);
+    }
+    .stage-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .stage-item {
+      background: var(--panel-alt);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--ugreen);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .stage-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+    .stage-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+    .stage-agent {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .stage-cmd {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.77rem;
+      color: #a7f3d0;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 7px 10px;
+      border-radius: 6px;
+      margin-top: 6px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+      margin-top: 8px;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .mono {
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+    .telemetry-bar {
+      margin-bottom: 14px;
+    }
+    .telemetry-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      margin-bottom: 5px;
+    }
+    .progress-track {
+      height: 8px;
+      background: #1e293b;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981, #06b6d4);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+    .ledger-preview {
+      background: #050811;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      max-height: 360px;
+      overflow-y: auto;
+    }
+    .approval-banner {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer {
+      max-width: 1380px;
+      margin: 36px auto 0;
+      padding: 20px 24px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="brand">
+      <span class="brand-badge">UGOS PRO AI NAS</span>
+      <div>
+        <h1>UGREEN AI NAS Contract &amp; Invoice Vault Auditor</h1>
+        <span>Local Zero-Cloud FinOps &amp; Legal Risk Engine on UGOS Pro (`contract-invoice-vault-auditor` v2.0.0)</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="pretest-skill-package.zip" download>⬇ Download Pre-test Skill Package (.zip)</a>
+      <a class="btn" href="project-proposal.pdf" target="_blank">📄 Project Proposal PDF (427 words)</a>
+      <a class="btn" href="assets/ugreen_nas_demo.mp4" target="_blank">🎬 Watch 1080p Demo Video</a>
+      <a class="btn" href="contract-invoice-vault-auditor/SKILL.md" target="_blank">🔍 View SKILL.md</a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <section class="hero">
+    <div>
+      <span class="hero-tag">UGREEN HACKATHON 2026 ON AI NAS • TRACK: AUTOMATE YOUR WORKFLOW</span>
+      <h2>Four-Way Cross-Modal Contract, Invoice, Receipt Photo &amp; Voice-Memo Reconciliation — 100% On-NAS</h2>
+      <p>
+        Built natively for <strong>UGREEN AI NAS (UGOS Pro / Uliya Skill Standard v2.0.0 `kimage-planb` full `main-agent` profile)</strong>.
+        Orchestrates <code>file-agent</code>, <code>photo-agent</code>, <code>document-agent</code>, and <code>knowledge-agent</code> to detect
+        duplicate billing via SHA-256 digests, extract receipt images with local VLM/OCR, verify verbal change orders from meeting recordings,
+        and organize records behind strict <code>waiting_approval</code> gates with zero cloud uploads.
+      </p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="runLiveAudit()">▶ Run Interactive 5-Stage NAS Audit</button>
+        <button class="btn" onclick="approveVaultAction()">✅ Simulate `waiting_approval` Gate Sign-Off</button>
+      </div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="val">static-pass</div>
+        <div class="lbl">Official `uliya-skill-kit` v0.7.3 Validator (0 Errors, 0 Warnings)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="val">0 Bytes</div>
+        <div class="lbl">External Cloud Egress (100% Local UGOS Pro AI Execution)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="val">4 Experts</div>
+        <div class="lbl">`file-agent` • `photo-agent` • `document-agent` • `knowledge-agent`</div>
+      </div>
+      <div class="kpi-card">
+        <div class="val">SHA-256</div>
+        <div class="lbl">Cryptographic Deduplication &amp; Approval-Gated Vault Archiving</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="scenario-tabs">
+    <button class="tab-btn active" id="tab-0" onclick="selectScenario(0)">
+      Scenario 1: 4-Way Reconciliation + Verbal $500 Rush Fee Override (Core Test 1)
+    </button>
+    <button class="tab-btn" id="tab-1" onclick="selectScenario(1)">
+      Scenario 2: Cross-Folder SHA-256 Duplicate Invoice Catch (Core Test 2)
+    </button>
+    <button class="tab-btn" id="tab-2" onclick="selectScenario(2)">
+      Scenario 3: Unapproved Overbilling Variance + Cancelled Gate Recovery (Edge Test 3)
+    </button>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">⚡ Live 5-Stage Uliya Multi-Agent Delegation Pipeline</div>
+        <span class="pill pill-green" id="pipeline-status-badge">STATE: COMPLETED (READ-ONLY) → WAITING_APPROVAL</span>
+      </div>
+      <div class="stage-list" id="stage-container"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🖥️ UGREEN AI NAS iDX6011 Pro (64GB) Local Inference Telemetry</div>
+        <span class="pill">Zero Cloud API Calls</span>
+      </div>
+
+      <div class="telemetry-bar">
+        <div class="telemetry-label">
+          <span>Stage 1: `ug-filesystem` (`sha256sum`) + `ug-filemgr` (`scan-dedupe`)</span>
+          <span class="mono" id="tel-stage1">38 ms • 0.4 GB RAM</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="bar-1" style="width: 18%;"></div></div>
+      </div>
+
+      <div class="telemetry-bar">
+        <div class="telemetry-label">
+          <span>Stage 2: `ug-photo` (`vision-ocr` + `vision-vlm` Receipt Extraction)</span>
+          <span class="mono" id="tel-stage2">640 ms • 6.8 GB NPU/VRAM</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="bar-2" style="width: 62%;"></div></div>
+      </div>
+
+      <div class="telemetry-bar">
+        <div class="telemetry-label">
+          <span>Stage 3: `ug-document` (`extract` + `reconcile` + `qa` Clauses &amp; Line Items)</span>
+          <span class="mono" id="tel-stage3">810 ms • 8.2 GB LLM Context</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="bar-3" style="width: 78%;"></div></div>
+      </div>
+
+      <div class="telemetry-bar">
+        <div class="telemetry-label">
+          <span>Stage 4: `ug-knowledge` (`audio-transcription` + `collect-evidence`)</span>
+          <span class="mono" id="tel-stage4">520 ms • 4.1 GB Audio Model</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="bar-4" style="width: 54%;"></div></div>
+      </div>
+
+      <div class="telemetry-bar">
+        <div class="telemetry-label">
+          <span>Stage 5: `ug-filemgr` (`tag-add-file`) + `file-workflow` (`batch-move`)</span>
+          <span class="mono" id="tel-stage5">Gated by `waiting_approval`</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="bar-5" style="width: 100%; background: linear-gradient(90deg, #f59e0b, #10b981);"></div></div>
+      </div>
+
+      <div style="margin-top: 18px;">
+        <div style="font-size:0.86rem; font-weight:700; margin-bottom:8px; color:#e2e8f0;">
+          Generated Markdown Audit &amp; Reconciliation Ledger (`ug-knowledge` `save-text`):
+        </div>
+        <div class="ledger-preview" id="ledger-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom: 24px;">
+    <div class="card-header">
+      <div class="card-title">📊 Cross-Modal Contract vs. Invoice vs. Receipt Photo vs. Audio Evidence Matrix</div>
+      <span class="pill" id="scope-pill">Scope: /Volume1/Projects/2026-Q4-Client-Alpha</span>
+    </div>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>NAS File / Asset Path</th>
+            <th>SHA-256 Digest</th>
+            <th>Modality &amp; Expert</th>
+            <th>Contract Cap / Expected</th>
+            <th>Extracted / Billed Amount</th>
+            <th>Cross-Modal Evidence</th>
+            <th>Semantic Tag (`ug-filemgr`)</th>
+          </tr>
+        </thead>
+        <tbody id="reconcile-table-body"></tbody>
+      </table>
+    </div>
+    <div class="approval-banner" id="approval-banner">
+      <div>
+        <strong style="color:#fbbf24;">🔒 Approval Gate Active (`waiting_approval` / `waiting_user`)</strong>
+        <div style="font-size:0.83rem; color:#cbd5e1;" id="approval-desc">
+          Pending write actions: `save-text` (Audit Ledger), `tag-add-file` (`Verified-Match`, `Variance-Flagged`, `Duplicate-Candidate`), and `batch-move` to `/Volume1/Vault/2026-Q4-Audited/`.
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="approveVaultAction()">Approve &amp; Commit NAS Vault Tags</button>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🏗️ UGREEN UGOS Pro Architecture Visual</div>
+        <span class="pill pill-green">Uliya v2.0.0 Compliant</span>
+      </div>
+      <img src="assets/architecture.png" alt="UGREEN AI NAS Contract & Invoice Vault Auditor Architecture" style="width:100%; border-radius:10px; border:1px solid var(--border);" onerror="this.src='gallery-architecture.png'" />
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">📦 Pre-test Skill Package (`pretest-skill-package.zip`) Contents</div>
+        <span class="pill">check-skill.mjs: static-pass</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>File Path in ZIP</th>
+            <th>Role in Uliya Skill Standard v2.0.0</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">contract-invoice-vault-auditor/SKILL.md</td>
+            <td>Main entry point, 5-stage delegation instructions &amp; state machine</td>
+            <td><span class="pill pill-green">0 errors / 0 warnings</span></td>
+          </tr>
+          <tr>
+            <td class="mono">references/cli-command-matrix.md</td>
+            <td>Exact capability domain &amp; CLI action mapping across 4 child agents</td>
+            <td><span class="pill pill-green">Verified v2.0.0</span></td>
+          </tr>
+          <tr>
+            <td class="mono">references/schema-and-output-templates.md</td>
+            <td>Structured JSON/Markdown schemas for reconciliation &amp; Audit Ledger</td>
+            <td><span class="pill pill-green">Verified v2.0.0</span></td>
+          </tr>
+          <tr>
+            <td class="mono">references/test-cases-and-edge-recovery.md</td>
+            <td>Core Test 1, Core Test 2 &amp; Edge-Case state recovery protocols</td>
+            <td><span class="pill pill-green">Verified v2.0.0</span></td>
+          </tr>
+          <tr>
+            <td class="mono">references/security-and-permission-model.md</td>
+            <td>Zero-cloud privacy invariants, `waiting_approval` gates &amp; disclosures</td>
+            <td><span class="pill pill-green">Verified v2.0.0</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="pretest-skill-package.zip" download>⬇ Download pretest-skill-package.zip (15 KB)</a>
+        <a class="btn" href="project-proposal.pdf" target="_blank">📄 Open Project Proposal PDF</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>UGREEN Hackathon 2026 on AI NAS • Skill: <code>contract-invoice-vault-auditor</code> • Built by Jeffrey Graham</div>
+  <div>100% On-Premises UGOS Pro Execution • Zero External Cloud Calls</div>
+</footer>
+
+<script>
+  const SCENARIOS = [
+    {
+      scope: "/Volume1/Projects/2026-Q4-Client-Alpha + Album: 2026-Q4-Receipts",
+      statusBadge: "STATE: COMPLETED (4-WAY MATCH + AUDIO OVERRIDE) → WAITING_APPROVAL",
+      telemetry: ["42 ms • 5 Files Hashed", "680 ms • 2 Receipts OCR/VLM", "840 ms • 3 PDFs Reconciled", "510 ms • 1 Voice Memo Verified", "Ready for Approval Gate"],
+      stages: [
+        {
+          name: "Stage 1: Scope Resolution, SHA-256 Inventory & Duplicate Scan",
+          agent: "file-agent",
+          status: "completed",
+          cmd: "delegate --target file-agent --instruction 'Resolve Projects/2026-Q4-Client-Alpha, compute sha256sum + stat via ug-filesystem, and run read-only scan-dedupe via ug-filemgr.'"
+        },
+        {
+          name: "Stage 2: Visual Receipt & Wire Screenshot OCR/VLM Extraction",
+          agent: "photo-agent",
+          status: "completed",
+          cmd: "delegate --target photo-agent --instruction 'Search 2026-Q4-Receipts via ug-photo search-picture/search-screen and extract merchant, tax, and paid totals via vision-ocr & vision-vlm.'"
+        },
+        {
+          name: "Stage 3: Multi-Document Clause Extraction & Reconciliation",
+          agent: "document-agent",
+          status: "completed",
+          cmd: "delegate --target document-agent --instruction 'Run ug-document page-count, metadata, extract, reconcile, and qa across MSA-2026-Alpha.pdf, INV-1041.pdf, and INV-1042-Rush.pdf.'"
+        },
+        {
+          name: "Stage 4: Verbal Change-Order Verification & Audit Ledger",
+          agent: "knowledge-agent",
+          status: "completed",
+          cmd: "delegate --target knowledge-agent --instruction 'Transcribe Kickoff-ChangeOrder-Oct14.m4a via audio-transcription, run collect-evidence for $500 rush fee, and stage Audit Ledger via save-text.'"
+        },
+        {
+          name: "Stage 5: Approval-Gated Semantic Tagging & Vault Archiving",
+          agent: "file-agent",
+          status: "waiting_approval",
+          cmd: "delegate --target file-agent --instruction 'After waiting_approval confirmation, attach Verified-Match tags via ug-filemgr and organize into /Volume1/Vault/2026-Q4-Client-Alpha/.'"
+        }
+      ],
+      rows: [
+        {
+          path: "MSA-2026-Alpha.pdf",
+          sha: "9f86d081...4a2c",
+          mod: "PDF Contract (document-agent)",
+          expected: "$12,000.00 Cap",
+          actual: "$12,000.00 Base + Change Orders",
+          evidence: "Master Services Agreement Clause 4.2",
+          tag: "Verified-Match",
+          tagClass: "pill-green"
+        },
+        {
+          path: "INV-1041-Milestone1.pdf",
+          sha: "3c21b910...88e1",
+          mod: "PDF Invoice (document-agent)",
+          expected: "$6,000.00",
+          actual: "$6,000.00",
+          evidence: "Matches Receipt IMG_4821.HEIC ($6,000.00 Wire)",
+          tag: "Verified-Match",
+          tagClass: "pill-green"
+        },
+        {
+          path: "INV-1042-Milestone2-Rush.pdf",
+          sha: "7a44e19b...19f0",
+          mod: "PDF Invoice (document-agent)",
+          expected: "$6,000.00 (+ $500 Rush)",
+          actual: "$6,500.00",
+          evidence: "+$500 Variance Verified by Audio Memo @ 02:14",
+          tag: "Verified-Match",
+          tagClass: "pill-green"
+        },
+        {
+          path: "Photos/IMG_4899_Wire.png",
+          sha: "e109a552...77b4",
+          mod: "Receipt Screenshot (photo-agent)",
+          expected: "$6,500.00",
+          actual: "$6,500.00 (OCR/VLM Ref #WR-9921)",
+          evidence: "100% Match with INV-1042 + Audio Approval",
+          tag: "Verified-Match",
+          tagClass: "pill-green"
+        },
+        {
+          path: "Audio/Kickoff-ChangeOrder-Oct14.m4a",
+          sha: "b412c809...31d9",
+          mod: "Voice Memo (knowledge-agent)",
+          expected: "Verbal Authorization",
+          actual: "\"Approved $500 weekend rush surcharge\"",
+          evidence: "Transcript confidence 99.1% (02:11–02:29)",
+          tag: "Verified-Match",
+          tagClass: "pill-green"
+        }
+      ],
+      ledger: `# UGREEN AI NAS Audit & Reconciliation Ledger
+- **Project Scope**: /Volume1/Projects/2026-Q4-Client-Alpha
+- **Skill**: contract-invoice-vault-auditor (Uliya v2.0.0)
+- **Contract Cap**: $12,000.00 Base + Authorized Change Orders
+- **Total Invoiced**: $12,500.00 across 2 invoices
+- **Total Receipts Verified (vision-ocr / vision-vlm)**: $12,500.00
+- **Discrepancy Resolution**: +$500.00 variance on INV-1042 matched to verbal approval in Kickoff-ChangeOrder-Oct14.m4a [02:14].
+- **Duplicate Files Detected**: 0
+- **Approval Gate**: Pending user confirmation to apply 'Verified-Match' tags and archive 5 files.`
+    },
+    {
+      scope: "/Volume1/Downloads/Billing-2026-Q4 (Nested Duplicate Audit)",
+      statusBadge: "STATE: DUPLICATE CANDIDATES FLAGGED → WAITING_APPROVAL",
+      telemetry: ["55 ms • 8 Files Hashed", "390 ms • 1 Receipt OCR/VLM", "720 ms • 4 PDFs Reconciled", "110 ms • No Audio Needed", "Duplicate Alert Ready"],
+      stages: [
+        {
+          name: "Stage 1: Cryptographic SHA-256 & Nested scan-dedupe",
+          agent: "file-agent",
+          status: "completed",
+          cmd: "delegate --target file-agent --instruction 'Compute sha256sum across /Volume1/Downloads/Billing-2026-Q4 and run ug-filemgr scan-dedupe. Found identical digest d8f19c... across 2 nested files.'"
+        },
+        {
+          name: "Stage 2: Visual Receipt OCR/VLM Extraction",
+          agent: "photo-agent",
+          status: "completed",
+          cmd: "delegate --target photo-agent --instruction 'Extract payment receipt Receipt_Nov02.jpg ($3,200.00 paid once).'"
+        },
+        {
+          name: "Stage 3: Multi-Document Duplicate Invoice Number Detection",
+          agent: "document-agent",
+          status: "completed",
+          cmd: "delegate --target document-agent --instruction 'Reconcile Vendor-SOW.pdf ($3,200.00) against INV-882.pdf and Subfolder/INV-882-Copy.pdf. Flag $3,200.00 double-billing risk.'"
+        },
+        {
+          name: "Stage 4: Audit Ledger Compilation",
+          agent: "knowledge-agent",
+          status: "completed",
+          cmd: "delegate --target knowledge-agent --instruction 'Compile SHA-256 duplicate group evidence and stage Audit Ledger via save-text.'"
+        },
+        {
+          name: "Stage 5: Non-Destructive Duplicate Tagging & Quarantine",
+          agent: "file-agent",
+          status: "waiting_approval",
+          cmd: "delegate --target file-agent --instruction 'Attach Duplicate-Candidate tag to Subfolder/INV-882-Copy.pdf after approval without deleting source files.'"
+        }
+      ],
+      rows: [
+        {
+          path: "Vendor-CloudHost-SOW.pdf",
+          sha: "11a9f002...c401",
+          mod: "PDF Contract (document-agent)",
+          expected: "$3,200.00",
+          actual: "$3,200.00 Fixed Fee",
+          evidence: "Signed SOW Section 2",
+          tag: "Verified-Match",
+          tagClass: "pill-green"
+        },
+        {
+          path: "INV-882-Primary.pdf",
+          sha: "d8f19c44...902a",
+          mod: "PDF Invoice (document-agent)",
+          expected: "$3,200.00",
+          actual: "$3,200.00",
+          evidence: "Primary Invoice — Paid via Receipt_Nov02.jpg",
+          tag: "Verified-Match",
+          tagClass: "pill-green"
+        },
+        {
+          path: "Archive_Import/INV-882-Resubmitted.pdf",
+          sha: "d8f19c44...902a",
+          mod: "Duplicate File (file-agent)",
+          expected: "$0.00 (Duplicate)",
+          actual: "$3,200.00 (Double Bill Risk)",
+          evidence: "Identical SHA-256 d8f19c44...902a & Invoice #882",
+          tag: "Duplicate-Candidate",
+          tagClass: "pill-red"
+        }
+      ],
+      ledger: `# UGREEN AI NAS Audit & Reconciliation Ledger
+- **Project Scope**: /Volume1/Downloads/Billing-2026-Q4
+- **Duplicate Alert**: CRITICAL — 2 files share identical SHA-256 digest (d8f19c44...902a)
+  1. /Volume1/Downloads/Billing-2026-Q4/INV-882-Primary.pdf
+  2. /Volume1/Downloads/Billing-2026-Q4/Archive_Import/INV-882-Resubmitted.pdf
+- **Savings Protected**: Prevented $3,200.00 duplicate vendor payout.
+- **Non-Destructive Guarantee**: Zero files deleted; awaiting approval to tag 'Duplicate-Candidate'.`
+    },
+    {
+      scope: "/Volume1/Projects/2026-Q4-Studio-Retainer (Variance & Gate Test)",
+      statusBadge: "STATE: VARIANCE FLAGGED (+$1,450 UNAPPROVED) → WAITING_USER",
+      telemetry: ["31 ms • 4 Files Hashed", "590 ms • 1 Receipt OCR/VLM", "790 ms • Variance Flagged", "460 ms • 0 Verbal Approvals Found", "Paused at Approval Gate"],
+      stages: [
+        {
+          name: "Stage 1: Scope Resolution & Cryptographic Hash Inventory",
+          agent: "file-agent",
+          status: "completed",
+          cmd: "delegate --target file-agent --instruction 'Enumerate Studio-Retainer files and compute sha256sum.'"
+        },
+        {
+          name: "Stage 2: Visual Receipt OCR/VLM Extraction",
+          agent: "photo-agent",
+          status: "completed",
+          cmd: "delegate --target photo-agent --instruction 'Extract wire receipt screenshot ($4,000.00 retainer payment).'"
+        },
+        {
+          name: "Stage 3: Contract Cap vs. Invoice Line-Item Variance Detection",
+          agent: "document-agent",
+          status: "completed",
+          cmd: "delegate --target document-agent --instruction 'Detected $5,450.00 invoice against $4,000.00 contract cap (+$1,450.00 unapproved overage + 2% tax calculation error).'"
+        },
+        {
+          name: "Stage 4: Audio Transcript Search for Change-Order Evidence",
+          agent: "knowledge-agent",
+          status: "completed",
+          cmd: "delegate --target knowledge-agent --instruction 'Transcribed Weekly-Sync.mp3 — zero verbal approval found for +$1,450.00 line item. Classified as Variance-Flagged.'"
+        },
+        {
+          name: "Stage 5: Approval-Gated Tagging (`Variance-Flagged`)",
+          agent: "file-agent",
+          status: "waiting_user",
+          cmd: "delegate --target file-agent --instruction 'Await explicit user decision before tagging INV-991.pdf as Variance-Flagged.'"
+        }
+      ],
+      rows: [
+        {
+          path: "Retainer-Contract-2026.pdf",
+          sha: "55c8a112...00f3",
+          mod: "PDF Contract (document-agent)",
+          expected: "$4,000.00 / mo",
+          actual: "$4,000.00 Cap",
+          evidence: "Clause 3.1 Strict Monthly Cap",
+          tag: "Verified-Match",
+          tagClass: "pill-green"
+        },
+        {
+          path: "INV-991-Nov2026.pdf",
+          sha: "89d01e44...71a8",
+          mod: "PDF Invoice (document-agent)",
+          expected: "$4,000.00",
+          actual: "$5,450.00 (+$1,450 Variance)",
+          evidence: "Unapproved ' Licensing Add-On' + No Audio Evidence",
+          tag: "Variance-Flagged",
+          tagClass: "pill-amber"
+        }
+      ],
+      ledger: `# UGREEN AI NAS Audit & Reconciliation Ledger
+- **Project Scope**: /Volume1/Projects/2026-Q4-Studio-Retainer
+- **Flagged Discrepancy**: INV-991-Nov2026.pdf bills $5,450.00 against $4,000.00 contract cap (+$1,450.00 variance).
+- **Audio Evidence Check**: Weekly-Sync.mp3 transcribed locally; 0 verbal change-order approvals matched.
+- **Recommended Action**: Hold payment and tag INV-991-Nov2026.pdf as 'Variance-Flagged'.`
+    }
+  ];
+
+  let currentScenario = 0;
+
+  function selectScenario(idx) {
+    currentScenario = idx;
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i === idx);
+    });
+    const sc = SCENARIOS[idx];
+    document.getElementById('pipeline-status-badge').textContent = sc.statusBadge;
+    document.getElementById('scope-pill').textContent = "Scope: " + sc.scope;
+    document.getElementById('tel-stage1').textContent = sc.telemetry[0];
+    document.getElementById('tel-stage2').textContent = sc.telemetry[1];
+    document.getElementById('tel-stage3').textContent = sc.telemetry[2];
+    document.getElementById('tel-stage4').textContent = sc.telemetry[3];
+    document.getElementById('tel-stage5').textContent = sc.telemetry[4];
+
+    const stageContainer = document.getElementById('stage-container');
+    stageContainer.innerHTML = sc.stages.map(s => `
+      <div class="stage-item">
+        <div class="stage-top">
+          <span class="stage-name">${s.name}</span>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <span class="stage-agent">${s.agent}</span>
+            <span class="pill ${s.status === 'completed' ? 'pill-green' : 'pill-amber'}">${s.status}</span>
+          </div>
+        </div>
+        <div class="stage-cmd">${s.cmd}</div>
+      </div>
+    `).join('');
+
+    const tbody = document.getElementById('reconcile-table-body');
+    tbody.innerHTML = sc.rows.map(r => `
+      <tr>
+        <td class="mono">${r.path}</td>
+        <td class="mono">${r.sha}</td>
+        <td>${r.mod}</td>
+        <td>${r.expected}</td>
+        <td><strong>${r.actual}</strong></td>
+        <td>${r.evidence}</td>
+        <td><span class="pill ${r.tagClass}">${r.tag}</span></td>
+      </tr>
+    `).join('');
+
+    document.getElementById('ledger-box').textContent = sc.ledger;
+  }
+
+  function runLiveAudit() {
+    const next = (currentScenario + 1) % SCENARIOS.length;
+    selectScenario(next);
+  }
+
+  function approveVaultAction() {
+    document.getElementById('pipeline-status-badge').textContent = "STATE: ALL 5 STAGES COMPLETED (TAGS & VAULT ARCHIVE COMMITTED)";
+    document.getElementById('tel-stage5').textContent = "94 ms • Tags & Vault Committed";
+    const desc = document.getElementById('approval-desc');
+    desc.innerHTML = "✅ <strong>Approved &amp; Executed on UGOS Pro:</strong> Semantic tags (<code>Verified-Match</code> / <code>Variance-Flagged</code> / <code>Duplicate-Candidate</code>) applied via <code>ug-filemgr</code> and Audit Ledger saved via <code>ug-knowledge save-text</code>.";
+  }
+
+  selectScenario(0);
+</script>
+</body>
+</html>
